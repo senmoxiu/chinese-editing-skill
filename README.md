@@ -14,6 +14,24 @@
 
 只需安装 `skills/chinese-editing/` 整个目录。运行 skill 本身不需要 Python、Node.js、API Key 或 MCP；仓库维护检查另用 Python。
 
+### 使用 skills CLI
+
+已安装 Node.js 和 npm 时，在目标项目目录运行：
+
+```sh
+npx skills add senmoxiu/chinese-editing-skill --skill chinese-editing
+```
+
+按提示选择目标 Agent。默认安装到当前项目；只有添加 `-g` 才安装到用户级目录。
+
+如果只想查看仓库中可发现的 skill，不进行安装：
+
+```sh
+npx skills add senmoxiu/chinese-editing-skill --list
+```
+
+命令说明见 [skills CLI 文档](https://github.com/vercel-labs/skills#install-a-skill)。skills.sh 根据正常 CLI 安装的遥测自动记录并收录；关闭遥测的安装不提供该统计，`--list` 和直接克隆也不等同于安装。收录机制见 [官方 FAQ](https://www.skills.sh/docs/faq)，不保证安装后立即可搜索到。
+
 ### Pi：项目级
 
 ```sh
