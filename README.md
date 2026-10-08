@@ -12,7 +12,7 @@
 
 ## 安装
 
-只需安装 `skills/chinese-editing/` 整个目录。运行 skill 本身不需要 Python、Node.js、API Key 或 MCP；仓库维护检查另用 Python。
+只需安装 `skills/chinese-editing/` 整个目录。
 
 ### 使用 skills CLI
 
@@ -32,33 +32,6 @@ npx skills add senmoxiu/chinese-editing-skill --list
 
 命令说明见 [skills CLI 文档](https://github.com/vercel-labs/skills#install-a-skill)。skills.sh 根据正常 CLI 安装的遥测自动记录并收录；关闭遥测的安装不提供该统计，`--list` 和直接克隆也不等同于安装。收录机制见 [官方 FAQ](https://www.skills.sh/docs/faq)，不保证安装后立即可搜索到。
 
-### Pi：项目级
-
-```sh
-git clone https://github.com/senmoxiu/chinese-editing-skill.git
-```
-
-将仓库克隆到一个独立目录，在目标项目中把 `skills/chinese-editing/` 复制到 `.agents/skills/chinese-editing/`。Pi 的 Agent Skills 发现机制支持项目 `.agents/skills/`。
-
-在 Pi 中执行 `/reload`，然后调用：
-
-```text
-/skill:chinese-editing 只校对这段中文排版，保留代码和原有语气。
-```
-
-也可不安装，通过 `pi --skill /absolute/path/to/chinese-editing-skill/skills/chinese-editing` 临时加载。以上命令与路径机制依据 [Pi 文档](https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/skills.md) 和 [CLI 文档](https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/cli.md)，尚未在所有版本和模型上实测。
-
-### Codex 与其他 Agent
-
-将同一完整目录放入目标 Agent 支持的项目技能目录，再显式请求使用 `chinese-editing`。例如 Codex 支持的会话中可输入：
-
-```text
-使用 $chinese-editing 审校这份笔记，保留第一人称和未解决的问题。
-```
-
-不同客户端的发现目录与刷新方式可能不同，以客户端文档为准。`agents/openai.yaml` 仅提供 Codex 展示信息，核心规则不依赖它。无需一次安装本仓库的维护脚本或笔记。
-
-如果已安装同名 skill，先比较后更新，避免覆盖自己的规则。项目级安装仅供该项目使用；全局安装由你自行选择。
 
 ## 使用示例
 
