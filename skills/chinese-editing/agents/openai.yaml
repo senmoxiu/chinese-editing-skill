@@ -1,0 +1,4 @@
+interface:
+  display_name: "中文编辑"
+  short_description: "按任务校对中文排版、审校文档和优化技术界面文案，保留事实与语气"
+  default_prompt: "使用 $chinese-editing 处理这份中文文本，按我的要求选择编辑范围，保留事实、语气和技术字面量。"
