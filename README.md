@@ -38,7 +38,7 @@ git clone https://github.com/senmoxiu/chinese-editing-skill.git
 使用 $chinese-editing 审校这份笔记，保留第一人称和未解决的问题。
 ```
 
-不同客户端的发现目录与刷新方式可能不同，以客户端文档为准。`agents/openai.yaml` 仅提供 Codex 展示信息，核心规则不依赖它。无需一次安装本仓库的评估、维护脚本或笔记。
+不同客户端的发现目录与刷新方式可能不同，以客户端文档为准。`agents/openai.yaml` 仅提供 Codex 展示信息，核心规则不依赖它。无需一次安装本仓库的维护脚本或笔记。
 
 如果已安装同名 skill，先比较后更新，避免覆盖自己的规则。项目级安装仅供该项目使用；全局安装由你自行选择。
 
@@ -73,9 +73,7 @@ python scripts/validate.py
 python -m unittest discover -s tests -v
 ```
 
-校验只检查 skill 元数据、相对链接、来源版本、笔记和评估数据结构。它不能证明模型输出质量。
-
-[验收样例](evals/cases.json) 包含真实使用请求与行为评分点。按 [evals/README.md](evals/README.md) 在目标 Agent 和模型中复测，不把人工样例当作模型实测成绩。
+校验只检查 skill 元数据、相对链接、来源版本和笔记。它不能证明模型输出质量。
 
 拉取更新后重新校验并对比已安装目录；本仓库不自动更新全局配置，不创建 Git 钩子。
 

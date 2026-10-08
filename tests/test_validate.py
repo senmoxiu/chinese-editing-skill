@@ -1,6 +1,5 @@
 """Check that the repository validator rejects broken distributable packages."""
 import importlib.util
-import json
 from pathlib import Path
 import shutil
 import tempfile
@@ -33,13 +32,6 @@ class PackageValidationTests(unittest.TestCase):
         readme = self.root / "README.md"
         readme.write_text(readme.read_text(encoding="utf-8") + "\n[Outside](../outside.md)\n", encoding="utf-8")
         self.assertTrue(any("escapes repository" in e for e in validator.validate(self.root)[0]))
-
-    def test_duplicate_evaluation_id_is_rejected(self):
-        path = self.root / "evals/cases.json"
-        cases = json.loads(path.read_text(encoding="utf-8"))
-        cases.append(cases[0])
-        path.write_text(json.dumps(cases, ensure_ascii=False), encoding="utf-8")
-        self.assertTrue(any("Duplicate case" in e for e in validator.validate(self.root)[0]))
 
     def test_wrong_skill_name_is_rejected(self):
         entry = self.root / "skills/chinese-editing/SKILL.md"

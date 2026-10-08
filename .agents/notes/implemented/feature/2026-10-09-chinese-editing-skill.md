@@ -10,7 +10,7 @@ Status: implemented
 
 本仓库提供可独立安装的 chinese-editing skill，以任务意图区分排版校对、文档审校、技术及界面文案。规则按需读取，源文件语法、事实和作者语气有明确保护边界。默认简体中文横排弯引号，项目约定可覆盖。发布目标是公开 GitHub 仓库，安装默认采用项目范围。
 
-入口、参考和来源记录位于 skills/chinese-editing；安装说明、检查工具与评估样例留在仓库级。首版不携带自动修改正文的脚本。
+入口、参考和来源记录位于 skills/chinese-editing；安装说明与检查工具留在仓库级。不携带自动修改正文的脚本。行为评估套件的取消见[收窄决定](../simplification/2026-10-09-remove-custom-evaluations.md)。
 
 ## History audit
 
@@ -25,9 +25,9 @@ Status: implemented
 
 ## Verification
 
-- skill-creator 的 quick_validate.py 已通过；本仓库 scripts/validate.py 检查 YAML、相对文件链接、四个固定版本来源、笔记和 14 个行为案例的数据结构。
-- tests/test_validate.py 检查正常包，以及引用缺失、引用越界、重复案例和入口名称错误的拒绝行为。
-- 作者按案例走查了只排版、检查不写文件、技术字面量保护和未知状态处理；尚未在独立模型中执行 14 个案例，不报告模型通过率。
+- skill-creator 的 quick_validate.py 已通过；本仓库 scripts/validate.py 检查 YAML、相对文件链接、四个固定版本来源和笔记。
+- tests/test_validate.py 检查正常包，以及引用缺失、引用越界和入口名称错误的拒绝行为。
+- 未进行独立模型行为测评，不报告模型通过率。
 - 本仓库没有 Node.js 工具链，不添加仅为包装校验存在的 package.json；笔记格式校验由上述 Python 入口承担，不能运行 npm run verify-notes。
 
 ## Consequences
